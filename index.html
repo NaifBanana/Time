@@ -84,9 +84,9 @@
 		</div>
 	</body>
 	<script>
-		function ShowPos(){
-			var position = navigator.geolocation.getCurrentPosition();
-			alert(position.coords.latitude);
+		function NaifPos(){
+			var yarg = navigator.geolocation.getCurrentPosition();
+			alert(yarg.coords.latitude);
 		}
 		var Sun1=new Sun("#sun", "#wrap", 2);
 		Sun1.SunMove(2);
@@ -106,7 +106,7 @@
 			/*var col=prompt("Color");
 			$("body").css("background-color", col);
 			a(col);*/
-			ShowPos();
+			NaifPos();
 		});
 		
 		$("#ground").click(function(){
