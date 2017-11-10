@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="assets/Sun.js"></script>
+		<style>
+			html{
+				overflow:hidden;
+				height:100%;
+				width:100%;
+			}
+			body{
+				height:100%;
+				width:100%;
+				padding:0%;
+				margin:0%;
+				font-family:Century Gothic;
+				transition:.3s;
+			}
+			#wrap{
+				height:200%;
+				width:100%;
+				overflow:hidden;
+				scroll:none;
+			}
+			#sun{
+				position:absolute;
+				background-color:yellow;
+				border-radius:50%;
+				z-index:9;
+				transition:2s;
+			}
+			/*#ground{
+				width:100%;
+				height:50%;
+				top:50%;
+				background-color:black;
+				position:absolute;
+				z-index:999;
+				opacity:1;
+				transition:.3s;
+			}*/
+			#but{
+				height:60px;
+				width:200px;
+				top:125px;
+				position:absolute;
+				left:500px;
+				background-color:#09c159;
+				font-size:10px;
+			}
+			#white{
+				width:100%;
+				height:100%;
+				border-radius:0%;
+				background-color:white;
+				opacity:.25;
+				transition:.3s;
+				vertical-align:middle;
+				top:50%;
+				position:absolute;
+				left:50%;
+				margin-top:-30px;
+				margin-left:-100px;
+			}
+			#but:hover #white{
+				height:50px;
+				width:50px;
+				border-radius:50%;
+				margin:0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="sun"></div>
+			<!--<div id="ground"></div>-->
+			<div id="but">
+				<!--<div id="white">
+				</div>
+				<p>Hover on Me!</p>-->
+			</div>
+		</div>
+	</body>
+	<script>
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition();
+		} else{
+			alert("Did it ask?")
+		}
+		var Sun1=new Sun("#sun", "#wrap", 2);
+		Sun1.SunMove(2);
+		$("#sun").click(function(){
+			var tim=prompt("Time").toLowerCase();
+			Sun1.Stop();
+			if(tim=='clear'){
+				Sun1.SunMove(2);
+			} else{
+				var times=tim.split(":");
+				var hour=parseInt(times[0]);
+				var min=parseInt(times[1]);
+				Sun1.Set(null, null, hour, min);
+			};
+		});
+		$('#but').click(function(){
+			var col=prompt("Color");
+			$("body").css("background-color", col);
+			a(col);
+		});
+		$("#ground").click(function(){
+			var gCol=prompt("Color");
+			$("#ground").css('background-color', gCol);
+			a(gCol);
+		})
+	</script>
+</html>
