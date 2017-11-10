@@ -84,15 +84,10 @@
 		</div>
 	</body>
 	<script>
-		function ShowPos(postiion){
+		function ShowPos(){
+			position = navigator.geolocation.getCurrentPosition(app.onSuccess, app.onError, options);
 			alert(position.coords.latitude);
 		}
-		if (navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(ShowPos);
-		} else{
-			alert("Did it ask?");
-		};
-		
 		var Sun1=new Sun("#sun", "#wrap", 2);
 		Sun1.SunMove(2);
 		$("#sun").click(function(){
@@ -108,10 +103,12 @@
 			};
 		});
 		$('#but').click(function(){
-			var col=prompt("Color");
+			/*var col=prompt("Color");
 			$("body").css("background-color", col);
-			a(col);
+			a(col);*/
+			ShowPos();
 		});
+		
 		$("#ground").click(function(){
 			var gCol=prompt("Color");
 			$("#ground").css('background-color', gCol);
