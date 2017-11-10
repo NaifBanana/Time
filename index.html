@@ -114,20 +114,10 @@
 			};
 		});
 		$('#but').click(function(){
-			/*var col=prompt("Color");
-			$("body").css("background-color", col);
-			a(col);*/
-//			ShowPos();
 			navigator.geolocation.getCurrentPosition(function(position) {
 				alert(position.coords.latitude+position.coords.longitude);
 			});
 
 		});
-		
-		$("#ground").click(function(){
-			var gCol=prompt("Color");
-			$("#ground").css('background-color', gCol);
-			a(gCol);
-		})
 	</script>
 </html>
