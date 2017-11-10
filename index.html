@@ -70,6 +70,7 @@
 				margin:0 auto;
 			}
 		</style>
+		<title>What's the Time?</title>
 	</head>
 	<body>
 		<div id="wrap">
@@ -83,11 +84,15 @@
 		</div>
 	</body>
 	<script>
-		if (navigator.geolocation){
-			navigator.geolocation.getCurrentPosition();
-		} else{
-			alert("Did it ask?")
+		function ShowPos(postiion){
+			alert(position.coords.latitude);
 		}
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(ShowPos);
+		} else{
+			alert("Did it ask?");
+		};
+		
 		var Sun1=new Sun("#sun", "#wrap", 2);
 		Sun1.SunMove(2);
 		$("#sun").click(function(){
