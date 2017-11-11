@@ -90,17 +90,12 @@
 			</div>
 		</div>
 		<div id="ground">
-		<div id="Top"></div>
+			<div id="Top"></div>
 		</div>
 	</body>
 	<script>
-//		function ShowPos(){
-//			var position = navigator.geolocation.getCurrentPosition(app.onSuccess, app.onError, options);
-//			alert(position.coords.latitude);
-//		}
-		
 		var Sun1=new Sun("#sun", "#Sky", 2);
-		Sun1.SunMove(2);
+		Sun1.SunLoop(2);
 		$("#sun").click(function(){
 			var tim=prompt("Time").toLowerCase();
 			Sun1.Stop();

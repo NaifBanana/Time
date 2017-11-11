@@ -49,7 +49,7 @@ function Sun(sun, container, scale){
 		$(sun).css({"top": y, "left": x});
 		a("Hey!");
 	};
-	this.SunMove=function(refresh, rise, set, hr, min){
+	this.SunLoop=function(refresh, rise, set, hr, min){
 		this.Set(rise, set, hr, min);
 		var that=this;
 		loop=setInterval(function(){that.Set(rise, set, hr, min)}, refresh*1000);
